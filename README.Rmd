@@ -24,10 +24,16 @@ library(classdata)
 library(tidyverse)
 
 ```
-Step 1
+
+*Step 1: Inspect the first few lines of the data set:*
+
+*what variables are there?*
+
 ```{R}
-summary(ames)
+names(ames)
 ```
+
+
 ```{r}
 ## 2) is there a variable of special interest or focus?
 
@@ -51,4 +57,17 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
        y = "Sale Price")
 
 ```
+
+
+
+*Of what type are the variables?*
+```{R}
+sapply(ames, class)
+```
+*What does each variable mean?*
+
+
+what do we expect their data range to be?
+
+  Simply running the summary of the data set gives up all the column names and what
 
