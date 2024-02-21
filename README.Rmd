@@ -26,23 +26,23 @@ library(tidyverse)
 ```
 
 
-#Step 1: Inspect the first few lines of the data set:
+# Step 1: Inspect the first few lines of the data set:
 
-#what variables are there?*
+**What variables are there?**
 ```{R}
 names(ames)
 ```
-#Of what type are the variables?*
+**Of what type are the variables?**
 
 ```{R}
 sapply(ames, class)
 ```
 
-#What does each variable mean?*
+**What does each variable mean?**
 
 
 
-#What do we expect their data range to be?*
+**What do we expect their data range to be?**
 ```{R}
 
 summary(ames, na.rm = TRUE)
@@ -58,8 +58,7 @@ Sale Price is the variable of interest
 ## Sale Price is the variable of special interest.
 ```
 
-#Step 3, 
-
+# Step 3, Start the exploration with the main variable:
 
 ```{r}
 ## 3)
@@ -70,6 +69,8 @@ ggplot(ames, aes(x = `Sale Price`)) +
   geom_histogram(bins = 500) +
   ggtitle("Sale Price")
 ```
+
+# Step 4, Individual
 
 ```{r}
 ## 4) Range = 13870
@@ -85,43 +86,7 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
 
 ```
 
-
-
-<<<<<<< HEAD
-*Of what type are the variables?*
-
-#Step 1: Inspect the first few lines of the data set:
-
-#what variables are there?*
-```{R}
-names(ames)
-```
-#Of what type are the variables?*
-
-
-```{R}
-sapply(ames, class)
-```
-#What does each variable mean?*
-
-
-
-  Simply running the summary of the data set gives up all the column names and what
-<<<<<<< HEAD
-  
 ```{r}
 ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
 ```
-
-=======
-
-#What do we expect their data range to be?*
-```{R}
-
-summary(ames, na.rm = FALSE)
-
-```
->>>>>>> 68c1bf7221fac39b2715051b25455812035db075
-=======
->>>>>>> af530895bdfb5be4df188f36a2a46fd0d9cd5eda
 
