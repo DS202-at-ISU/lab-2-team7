@@ -28,7 +28,7 @@ library(tidyverse)
 
 # Step 1: Inspect the first few lines of the data set:
 
-**what variables are there?**
+**What variables are there?**
 ```{R}
 names(ames)
 ```
@@ -75,10 +75,15 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
   coord_flip()
   labs(title = "Bar Chart of Sale Price by Style",
        x = "Style",
-       y = "Sale Price")
+       y = "Count")
+
+
 
 ```
 
+```{r}
+ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
+```
 
-
+>>>>>>> af530895bdfb5be4df188f36a2a46fd0d9cd5eda
 

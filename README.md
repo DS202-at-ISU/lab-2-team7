@@ -19,7 +19,7 @@ you are done with your submission.
 
 # Step 1: Inspect the first few lines of the data set:
 
-**what variables are there?**
+**What variables are there?**
 
 ``` r
 names(ames)
@@ -137,17 +137,27 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
 ``` r
   labs(title = "Bar Chart of Sale Price by Style",
        x = "Style",
-       y = "Sale Price")
+       y = "Count")
 ```
 
     ## $x
     ## [1] "Style"
     ## 
     ## $y
-    ## [1] "Sale Price"
+    ## [1] "Count"
     ## 
     ## $title
     ## [1] "Bar Chart of Sale Price by Style"
     ## 
     ## attr(,"class")
     ## [1] "labels"
+
+``` r
+ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
+```
+
+    ## Warning: Removed 447 rows containing non-finite values (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+> > > > > > > af530895bdfb5be4df188f36a2a46fd0d9cd5eda
