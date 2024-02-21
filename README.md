@@ -8,24 +8,6 @@ Follow the instructions posted at
 work is meant to be finished during the lab time, but you have time
 until Monday evening to polish things.
 
-``` r
-head(ames)
-```
-
-    ## # A tibble: 6 × 16
-    ##   `Parcel ID` Address      Style Occupancy `Sale Date` `Sale Price` `Multi Sale`
-    ##   <chr>       <chr>        <fct> <fct>     <date>             <dbl> <chr>       
-    ## 1 0903202160  1024 RIDGEW… 1 1/… Single-F… 2022-08-12        181900 <NA>        
-    ## 2 0907428215  4503 TWAIN … 1 St… Condomin… 2022-08-04        127100 <NA>        
-    ## 3 0909428070  2030 MCCART… 1 St… Single-F… 2022-08-15             0 <NA>        
-    ## 4 0923203160  3404 EMERAL… 1 St… Townhouse 2022-08-09        245000 <NA>        
-    ## 5 0520440010  4507 EVERES… <NA>  <NA>      2022-08-03        449664 <NA>        
-    ## 6 0907275030  4512 HEMING… 2 St… Single-F… 2022-08-16        368000 <NA>        
-    ## # ℹ 9 more variables: YearBuilt <dbl>, Acres <dbl>,
-    ## #   `TotalLivingArea (sf)` <dbl>, Bedrooms <dbl>,
-    ## #   `FinishedBsmtArea (sf)` <dbl>, `LotArea(sf)` <dbl>, AC <chr>,
-    ## #   FirePlace <chr>, Neighborhood <fct>
-
 Include your answers in this document (Rmd file). Make sure that it
 knits properly (into the md file). Upload both the Rmd and the md file
 to your repository.
@@ -35,7 +17,10 @@ grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
 
-Step 1
+Step 1: Inspect the first few lines of the data set:
+
+what variables are there? of what type are the variables? what does each
+variable mean? what do we expect their data range to be?
 
 ``` r
 summary(ames)
@@ -81,3 +66,6 @@ summary(ames)
     ##                     (34) Res: Edwards        : 444  
     ##                     (19) Res: North Ridge Hei: 420  
     ##                     (Other)                  :3622
+
+Simply running the summary of the data set gives up all the column names
+and what
