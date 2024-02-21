@@ -115,14 +115,13 @@ Sale Price is the variable of interest
 ``` r
 ## 3)
 ggplot(ames, aes(x = `Sale Price`)) + 
-  geom_histogram() +
+  geom_histogram(bins = 500) +
   ggtitle("Sale Price")
 ```
 
-    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> \# Step 4,
-Individual
+# Step 4, Individual
 
 ``` r
 ## 4) Range = 20500000
@@ -159,5 +158,3 @@ ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
     ## Warning: Removed 447 rows containing non-finite values (`stat_bin()`).
 
 ![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
-
-> > > > > > > af530895bdfb5be4df188f36a2a46fd0d9cd5eda

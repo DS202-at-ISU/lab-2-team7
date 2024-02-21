@@ -63,10 +63,12 @@ Sale Price is the variable of interest
 ```{r}
 ## 3)
 ggplot(ames, aes(x = `Sale Price`)) + 
-  geom_histogram() +
+  geom_histogram(bins = 500) +
   ggtitle("Sale Price")
 ```
+
 # Step 4, Individual
+
 ```{r}
 ## 4) Range = 20500000
 library(ggplot2)
@@ -84,6 +86,4 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
 ```{r}
 ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
 ```
-
->>>>>>> af530895bdfb5be4df188f36a2a46fd0d9cd5eda
 
