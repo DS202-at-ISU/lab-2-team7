@@ -62,14 +62,14 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
 ``` r
   labs(title = "Bar Chart of Sale Price by Style",
        x = "Style",
-       y = "Sale Price")
+       y = "Count")
 ```
 
     ## $x
     ## [1] "Style"
     ## 
     ## $y
-    ## [1] "Sale Price"
+    ## [1] "Count"
     ## 
     ## $title
     ## [1] "Bar Chart of Sale Price by Style"

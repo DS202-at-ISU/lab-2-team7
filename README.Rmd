@@ -55,7 +55,9 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
   coord_flip()
   labs(title = "Bar Chart of Sale Price by Style",
        x = "Style",
-       y = "Sale Price")
+       y = "Count")
+
+
 
 ```
 
