@@ -40,8 +40,8 @@ sapply(ames, class)
 
 #What do we expect their data range to be?*
 ```{R}
-
-summary(ames, na.rm = FALSE)
+ames[ames == 0] <- NA
+summary(ames)
 
 ```
 
