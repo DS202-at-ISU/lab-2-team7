@@ -17,10 +17,7 @@ grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
 
-Step 1: Inspect the first few lines of the data set:
-
-what variables are there? of what type are the variables? what does each
-variable mean? what do we expect their data range to be?
+Step 1
 
 ``` r
 summary(ames)
@@ -67,5 +64,45 @@ summary(ames)
     ##                     (19) Res: North Ridge Hei: 420  
     ##                     (Other)                  :3622
 
-Simply running the summary of the data set gives up all the column names
-and what
+``` r
+## 2) is there a variable of special interest or focus?
+
+## Sale Price is the variable of special interest.
+```
+
+``` r
+## 3)
+ggplot(ames, aes(x = 6)) + 
+  geom_histogram(bins = 100000) +
+  ggtitle("Sale Price")
+```
+
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+``` r
+## 4) Range = 20500000
+library(ggplot2)
+ggplot(data = ames, aes(x = Style, fill = Style)) +
+  geom_bar() +
+  coord_flip()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+``` r
+  labs(title = "Bar Chart of Sale Price by Style",
+       x = "Style",
+       y = "Sale Price")
+```
+
+    ## $x
+    ## [1] "Style"
+    ## 
+    ## $y
+    ## [1] "Sale Price"
+    ## 
+    ## $title
+    ## [1] "Bar Chart of Sale Price by Style"
+    ## 
+    ## attr(,"class")
+    ## [1] "labels"
