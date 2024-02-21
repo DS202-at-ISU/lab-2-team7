@@ -17,9 +17,9 @@ grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
 
-\#Step 1: Inspect the first few lines of the data set:
+# Step 1: Inspect the first few lines of the data set:
 
-\#what variables are there?\*
+**What variables are there?**
 
 ``` r
 names(ames)
@@ -53,7 +53,28 @@ sapply(ames, class)
 
 \#What does each variable mean?\*
 
-\#What do we expect their data range to be?\*
+**Of what type are the variables?**
+
+``` r
+sapply(ames, class)
+```
+
+    ##             Parcel ID               Address                 Style 
+    ##           "character"           "character"              "factor" 
+    ##             Occupancy             Sale Date            Sale Price 
+    ##              "factor"                "Date"             "numeric" 
+    ##            Multi Sale             YearBuilt                 Acres 
+    ##           "character"             "numeric"             "numeric" 
+    ##  TotalLivingArea (sf)              Bedrooms FinishedBsmtArea (sf) 
+    ##             "numeric"             "numeric"             "numeric" 
+    ##           LotArea(sf)                    AC             FirePlace 
+    ##             "numeric"           "character"           "character" 
+    ##          Neighborhood 
+    ##              "factor"
+
+**What does each variable mean?**
+
+**What do we expect their data range to be?**
 
 ``` r
 ames[ames == 0] <- NA
@@ -100,3 +121,67 @@ summary(ames)
     ##                     (34) Res: Edwards        : 444  
     ##                     (19) Res: North Ridge Hei: 420  
     ##                     (Other)                  :3622
+
+# Step 2, Is there a variable of special interest or focus?
+
+Sale Price is the variable of interest
+
+``` r
+## 2) is there a variable of special interest or focus?
+
+## Sale Price is the variable of special interest.
+```
+
+# Step 3, Start the exploration with the main variable:
+
+``` r
+## 3)
+## Range = 20500000
+## The graph is right-skewed with extreme outliers 
+
+ggplot(ames, aes(x = `Sale Price`)) + 
+  geom_histogram(bins = 500) +
+  ggtitle("Sale Price")
+```
+
+    ## Warning: Removed 2206 rows containing non-finite values (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+# Step 4, Individual
+
+``` r
+## 4) Range = 13870
+library(ggplot2)
+ggplot(data = ames, aes(x = Style, fill = Style)) +
+  geom_bar() +
+  coord_flip()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+``` r
+  labs(title = "Bar Chart of Style",
+       x = "Style",
+       y = "Count")
+```
+
+    ## $x
+    ## [1] "Style"
+    ## 
+    ## $y
+    ## [1] "Count"
+    ## 
+    ## $title
+    ## [1] "Bar Chart of Style"
+    ## 
+    ## attr(,"class")
+    ## [1] "labels"
+
+``` r
+ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
+```
+
+    ## Warning: Removed 486 rows containing non-finite values (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->

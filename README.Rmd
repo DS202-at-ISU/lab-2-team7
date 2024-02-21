@@ -24,24 +24,78 @@ library(classdata)
 library(tidyverse)
 
 ```
-#Step 1: Inspect the first few lines of the data set:
 
-#what variables are there?*
+
+# Step 1: Inspect the first few lines of the data set:
+
+
+**What variables are there?**
 ```{R}
 names(ames)
 ```
+
 #Of what type are the variables?*
 ```{R}
 sapply(ames, class)
 ```
 #What does each variable mean?*
 
+**Of what type are the variables?**
+
+```{R}
+sapply(ames, class)
+```
+
+**What does each variable mean?**
 
 
-#What do we expect their data range to be?*
+**What do we expect their data range to be?**
 ```{R}
 ames[ames == 0] <- NA
 summary(ames)
 
 ```
+
+
+# Step 2, Is there a variable of special interest or focus?
+Sale Price is the variable of interest
+
+```{r}
+## 2) is there a variable of special interest or focus?
+
+## Sale Price is the variable of special interest.
+```
+
+# Step 3, Start the exploration with the main variable:
+
+```{r}
+## 3)
+## Range = 20500000
+## The graph is right-skewed with extreme outliers 
+
+ggplot(ames, aes(x = `Sale Price`)) + 
+  geom_histogram(bins = 500) +
+  ggtitle("Sale Price")
+```
+
+# Step 4, Individual
+
+```{r}
+## 4) Range = 13870
+library(ggplot2)
+ggplot(data = ames, aes(x = Style, fill = Style)) +
+  geom_bar() +
+  coord_flip()
+  labs(title = "Bar Chart of Style",
+       x = "Style",
+       y = "Count")
+
+
+
+```
+
+```{r}
+ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
+```
+
 
