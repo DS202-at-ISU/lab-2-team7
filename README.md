@@ -73,7 +73,7 @@ summary(ames)
 ``` r
 ## 3)
 ggplot(ames, aes(x = 6)) + 
-  geom_histogram(bins = 100000) +
+  geom_histogram(binwidth = 1) +
   ggtitle("Sale Price")
 ```
 
