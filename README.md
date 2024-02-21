@@ -51,55 +51,7 @@ sapply(ames, class)
     ##          Neighborhood 
     ##              "factor"
 
-``` r
-## 2) is there a variable of special interest or focus?
-
-## Sale Price is the variable of special interest.
-```
-
-``` r
-## 3)
-ggplot(ames, aes(x = `Sale Price`)) + 
-  geom_histogram() +
-  ggtitle("Sale Price")
-```
-
-    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
-
-``` r
-## 4) Range = 20500000
-library(ggplot2)
-ggplot(data = ames, aes(x = Style, fill = Style)) +
-  geom_bar() +
-  coord_flip()
-```
-
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
-
-``` r
-  labs(title = "Bar Chart of Sale Price by Style",
-       x = "Style",
-       y = "Sale Price")
-```
-
-    ## $x
-    ## [1] "Style"
-    ## 
-    ## $y
-    ## [1] "Sale Price"
-    ## 
-    ## $title
-    ## [1] "Bar Chart of Sale Price by Style"
-    ## 
-    ## attr(,"class")
-    ## [1] "labels"
-
 \#What does each variable mean?\*
-
-Simply running the summary of the data set gives up all the column names
-and what
 
 \#What do we expect their data range to be?\*
 
@@ -147,3 +99,54 @@ summary(ames, na.rm = TRUE)
     ##                     (34) Res: Edwards        : 444  
     ##                     (19) Res: North Ridge Hei: 420  
     ##                     (Other)                  :3622
+
+# Step 2, Is there a variable of special interest or focus?
+
+Sale Price is the variable of interest
+
+``` r
+## 2) is there a variable of special interest or focus?
+
+## Sale Price is the variable of special interest.
+```
+
+\#Step 3,
+
+``` r
+## 3)
+ggplot(ames, aes(x = `Sale Price`)) + 
+  geom_histogram() +
+  ggtitle("Sale Price")
+```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+``` r
+## 4) Range = 20500000
+library(ggplot2)
+ggplot(data = ames, aes(x = Style, fill = Style)) +
+  geom_bar() +
+  coord_flip()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+``` r
+  labs(title = "Bar Chart of Sale Price by Style",
+       x = "Style",
+       y = "Sale Price")
+```
+
+    ## $x
+    ## [1] "Style"
+    ## 
+    ## $y
+    ## [1] "Sale Price"
+    ## 
+    ## $title
+    ## [1] "Bar Chart of Sale Price by Style"
+    ## 
+    ## attr(,"class")
+    ## [1] "labels"

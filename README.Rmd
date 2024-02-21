@@ -34,17 +34,33 @@ names(ames)
 ```
 #Of what type are the variables?*
 
-
 ```{R}
 sapply(ames, class)
 ```
 
+#What does each variable mean?*
+
+
+
+#What do we expect their data range to be?*
+```{R}
+
+summary(ames, na.rm = TRUE)
+
+```
+
+# Step 2, Is there a variable of special interest or focus?
+Sale Price is the variable of interest
 
 ```{r}
 ## 2) is there a variable of special interest or focus?
 
 ## Sale Price is the variable of special interest.
 ```
+
+#Step 3, 
+
+
 ```{r}
 ## 3)
 ggplot(ames, aes(x = `Sale Price`)) + 
@@ -65,16 +81,5 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
 ```
 
 
-#What does each variable mean?*
 
-
-
-  Simply running the summary of the data set gives up all the column names and what
-
-#What do we expect their data range to be?*
-```{R}
-
-summary(ames, na.rm = TRUE)
-
-```
 
