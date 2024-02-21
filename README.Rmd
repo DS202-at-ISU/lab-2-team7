@@ -24,19 +24,24 @@ library(classdata)
 library(tidyverse)
 
 ```
-*Step 1: Inspect the first few lines of the data set:*
+#Step 1: Inspect the first few lines of the data set:
 
-*what variables are there?*
+#what variables are there?*
 ```{R}
 names(ames)
 ```
-*Of what type are the variables?*
+#Of what type are the variables?*
 ```{R}
 sapply(ames, class)
 ```
-*What does each variable mean?*
+#What does each variable mean?*
 
 
-what do we expect their data range to be?
 
-  Simply running the summary of the data set gives up all the column names and what
+#What do we expect their data range to be?*
+```{R}
+
+summary(ames, na.rm = FALSE)
+
+```
+
