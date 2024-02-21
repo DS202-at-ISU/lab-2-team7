@@ -42,8 +42,8 @@ names(ames)
 ```
 ```{r}
 ## 3)
-ggplot(ames, aes(x = 6)) + 
-  geom_histogram(binwidth = 1) +
+ggplot(ames, aes(x = `Sale Price`)) + 
+  geom_histogram() +
   ggtitle("Sale Price")
 ```
 

@@ -40,10 +40,12 @@ names(ames)
 
 ``` r
 ## 3)
-ggplot(ames, aes(x = 6)) + 
-  geom_histogram(binwidth = 1) +
+ggplot(ames, aes(x = `Sale Price`)) + 
+  geom_histogram() +
   ggtitle("Sale Price")
 ```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
