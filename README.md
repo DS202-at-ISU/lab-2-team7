@@ -17,9 +17,9 @@ grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
 
-*Step 1: Inspect the first few lines of the data set:*
+\#Step 1: Inspect the first few lines of the data set:
 
-*what variables are there?*
+\#what variables are there?\*
 
 ``` r
 names(ames)
@@ -32,22 +32,94 @@ names(ames)
     ## [13] "LotArea(sf)"           "AC"                    "FirePlace"            
     ## [16] "Neighborhood"
 
+\#Of what type are the variables?\*
+
+``` r
+sapply(ames, class)
+```
+
+    ##             Parcel ID               Address                 Style 
+    ##           "character"           "character"              "factor" 
+    ##             Occupancy             Sale Date            Sale Price 
+    ##              "factor"                "Date"             "numeric" 
+    ##            Multi Sale             YearBuilt                 Acres 
+    ##           "character"             "numeric"             "numeric" 
+    ##  TotalLivingArea (sf)              Bedrooms FinishedBsmtArea (sf) 
+    ##             "numeric"             "numeric"             "numeric" 
+    ##           LotArea(sf)                    AC             FirePlace 
+    ##             "numeric"           "character"           "character" 
+    ##          Neighborhood 
+    ##              "factor"
+
+\#What does each variable mean?\*
+
+\#What do we expect their data range to be?\*
+
+``` r
+summary(ames, na.rm = TRUE)
+```
+
+    ##   Parcel ID           Address                        Style     
+    ##  Length:6935        Length:6935        1 Story Frame    :3732  
+    ##  Class :character   Class :character   2 Story Frame    :1456  
+    ##  Mode  :character   Mode  :character   1 1/2 Story Frame: 711  
+    ##                                        Split Level Frame: 215  
+    ##                                        Split Foyer Frame: 156  
+    ##                                        (Other)          : 218  
+    ##                                        NA's             : 447  
+    ##                           Occupancy      Sale Date            Sale Price      
+    ##  Condominium                   : 711   Min.   :2017-07-03   Min.   :       0  
+    ##  Single-Family / Owner Occupied:4711   1st Qu.:2019-03-27   1st Qu.:       0  
+    ##  Townhouse                     : 745   Median :2020-09-22   Median :  170900  
+    ##  Two-Family Conversion         : 139   Mean   :2020-06-14   Mean   : 1017479  
+    ##  Two-Family Duplex             : 182   3rd Qu.:2021-10-14   3rd Qu.:  280000  
+    ##  NA's                          : 447   Max.   :2022-08-31   Max.   :20500000  
+    ##                                                                               
+    ##   Multi Sale          YearBuilt        Acres         TotalLivingArea (sf)
+    ##  Length:6935        Min.   :   0   Min.   : 0.0000   Min.   :   0        
+    ##  Class :character   1st Qu.:1956   1st Qu.: 0.1502   1st Qu.:1095        
+    ##  Mode  :character   Median :1978   Median : 0.2200   Median :1460        
+    ##                     Mean   :1976   Mean   : 0.2631   Mean   :1507        
+    ##                     3rd Qu.:2002   3rd Qu.: 0.2770   3rd Qu.:1792        
+    ##                     Max.   :2022   Max.   :12.0120   Max.   :6007        
+    ##                     NA's   :447    NA's   :89        NA's   :447         
+    ##     Bedrooms      FinishedBsmtArea (sf)  LotArea(sf)          AC           
+    ##  Min.   : 0.000   Min.   :  10.0        Min.   :     0   Length:6935       
+    ##  1st Qu.: 3.000   1st Qu.: 474.0        1st Qu.:  6553   Class :character  
+    ##  Median : 3.000   Median : 727.0        Median :  9575   Mode  :character  
+    ##  Mean   : 3.299   Mean   : 776.7        Mean   : 11466                     
+    ##  3rd Qu.: 4.000   3rd Qu.:1011.0        3rd Qu.: 12088                     
+    ##  Max.   :10.000   Max.   :6496.0        Max.   :523228                     
+    ##  NA's   :447      NA's   :2682          NA's   :89                         
+    ##   FirePlace                            Neighborhood 
+    ##  Length:6935        (27) Res: N Ames         : 854  
+    ##  Class :character   (37) Res: College Creek  : 652  
+    ##  Mode  :character   (57) Res: Investor Owned : 474  
+    ##                     (29) Res: Old Town       : 469  
+    ##                     (34) Res: Edwards        : 444  
+    ##                     (19) Res: North Ridge Hei: 420  
+    ##                     (Other)                  :3622
+
+# Step 2, Is there a variable of special interest or focus?
+
+Sale Price is the variable of interest
+
 ``` r
 ## 2) is there a variable of special interest or focus?
 
 ## Sale Price is the variable of special interest.
 ```
 
+\#Step 3,
+
 ``` r
 ## 3)
 ggplot(ames, aes(x = `Sale Price`)) + 
-  geom_histogram() +
+  geom_histogram(bins = 500) +
   ggtitle("Sale Price")
 ```
 
-    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 ## 4) Range = 20500000
@@ -57,7 +129,7 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
   coord_flip()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ``` r
   labs(title = "Bar Chart of Sale Price by Style",
@@ -77,7 +149,7 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
     ## attr(,"class")
     ## [1] "labels"
 
-*Of what type are the variables?*
+\<\<\<\<\<\<\< HEAD *Of what type are the variables?*
 
 \#Step 1: Inspect the first few lines of the data set:
 
@@ -116,7 +188,17 @@ sapply(ames, class)
 \#What does each variable mean?\*
 
 Simply running the summary of the data set gives up all the column names
-and what
+and what \<\<\<\<\<\<\< HEAD
+
+``` r
+ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
+```
+
+    ## Warning: Removed 447 rows containing non-finite values (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+
+=======
 
 \#What do we expect their data range to be?\*
 
@@ -164,3 +246,7 @@ summary(ames, na.rm = FALSE)
     ##                     (34) Res: Edwards        : 444  
     ##                     (19) Res: North Ridge Hei: 420  
     ##                     (Other)                  :3622
+
+# \>\>\>\>\>\>\> 68c1bf7221fac39b2715051b25455812035db075
+
+> > > > > > > af530895bdfb5be4df188f36a2a46fd0d9cd5eda

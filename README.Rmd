@@ -64,7 +64,7 @@ Sale Price is the variable of interest
 ```{r}
 ## 3)
 ggplot(ames, aes(x = `Sale Price`)) + 
-  geom_histogram() +
+  geom_histogram(bins = 500) +
   ggtitle("Sale Price")
 ```
 
