@@ -17,9 +17,9 @@ grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
 
-\#Step 1: Inspect the first few lines of the data set:
+# Step 1: Inspect the first few lines of the data set:
 
-\#what variables are there?\*
+**what variables are there?**
 
 ``` r
 names(ames)
@@ -32,7 +32,7 @@ names(ames)
     ## [13] "LotArea(sf)"           "AC"                    "FirePlace"            
     ## [16] "Neighborhood"
 
-\#Of what type are the variables?\*
+**Of what type are the variables?**
 
 ``` r
 sapply(ames, class)
@@ -51,9 +51,9 @@ sapply(ames, class)
     ##          Neighborhood 
     ##              "factor"
 
-\#What does each variable mean?\*
+**What does each variable mean?**
 
-\#What do we expect their data range to be?\*
+**What do we expect their data range to be?**
 
 ``` r
 summary(ames, na.rm = TRUE)
@@ -110,7 +110,7 @@ Sale Price is the variable of interest
 ## Sale Price is the variable of special interest.
 ```
 
-\#Step 3,
+# Step 3, Start the exploration with the main variable:
 
 ``` r
 ## 3)
@@ -121,7 +121,8 @@ ggplot(ames, aes(x = `Sale Price`)) +
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> \# Step 4,
+Individual
 
 ``` r
 ## 4) Range = 20500000
