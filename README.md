@@ -119,7 +119,7 @@ and what
 \#What do we expect their data range to be?\*
 
 ``` r
-summary(ames, na.rm = FALSE)
+summary(ames, na.rm = TRUE)
 ```
 
     ##   Parcel ID           Address                        Style     
