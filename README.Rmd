@@ -40,3 +40,9 @@ sapply(ames, class)
 what do we expect their data range to be?
 
   Simply running the summary of the data set gives up all the column names and what
+  
+```{r}
+ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
+```
+
+
