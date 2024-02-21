@@ -17,68 +17,6 @@ grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
 
-*Step 1: Inspect the first few lines of the data set:*
-
-*what variables are there?*
-
-``` r
-names(ames)
-```
-
-    ##  [1] "Parcel ID"             "Address"               "Style"                
-    ##  [4] "Occupancy"             "Sale Date"             "Sale Price"           
-    ##  [7] "Multi Sale"            "YearBuilt"             "Acres"                
-    ## [10] "TotalLivingArea (sf)"  "Bedrooms"              "FinishedBsmtArea (sf)"
-    ## [13] "LotArea(sf)"           "AC"                    "FirePlace"            
-    ## [16] "Neighborhood"
-
-``` r
-## 2) is there a variable of special interest or focus?
-
-## Sale Price is the variable of special interest.
-```
-
-``` r
-## 3)
-ggplot(ames, aes(x = `Sale Price`)) + 
-  geom_histogram() +
-  ggtitle("Sale Price")
-```
-
-    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
-
-``` r
-## 4) Range = 20500000
-library(ggplot2)
-ggplot(data = ames, aes(x = Style, fill = Style)) +
-  geom_bar() +
-  coord_flip()
-```
-
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
-
-``` r
-  labs(title = "Bar Chart of Sale Price by Style",
-       x = "Style",
-       y = "Sale Price")
-```
-
-    ## $x
-    ## [1] "Style"
-    ## 
-    ## $y
-    ## [1] "Sale Price"
-    ## 
-    ## $title
-    ## [1] "Bar Chart of Sale Price by Style"
-    ## 
-    ## attr(,"class")
-    ## [1] "labels"
-
-*Of what type are the variables?*
-
 \#Step 1: Inspect the first few lines of the data set:
 
 \#what variables are there?\*
@@ -112,6 +50,51 @@ sapply(ames, class)
     ##             "numeric"           "character"           "character" 
     ##          Neighborhood 
     ##              "factor"
+
+``` r
+## 2) is there a variable of special interest or focus?
+
+## Sale Price is the variable of special interest.
+```
+
+``` r
+## 3)
+ggplot(ames, aes(x = `Sale Price`)) + 
+  geom_histogram() +
+  ggtitle("Sale Price")
+```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+``` r
+## 4) Range = 20500000
+library(ggplot2)
+ggplot(data = ames, aes(x = Style, fill = Style)) +
+  geom_bar() +
+  coord_flip()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+``` r
+  labs(title = "Bar Chart of Sale Price by Style",
+       x = "Style",
+       y = "Sale Price")
+```
+
+    ## $x
+    ## [1] "Style"
+    ## 
+    ## $y
+    ## [1] "Sale Price"
+    ## 
+    ## $title
+    ## [1] "Bar Chart of Sale Price by Style"
+    ## 
+    ## attr(,"class")
+    ## [1] "labels"
 
 \#What does each variable mean?\*
 

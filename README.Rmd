@@ -26,12 +26,17 @@ library(tidyverse)
 ```
 
 
-*Step 1: Inspect the first few lines of the data set:*
+#Step 1: Inspect the first few lines of the data set:
 
-*what variables are there?*
-
+#what variables are there?*
 ```{R}
 names(ames)
+```
+#Of what type are the variables?*
+
+
+```{R}
+sapply(ames, class)
 ```
 
 
@@ -60,21 +65,6 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
 ```
 
 
-
-*Of what type are the variables?*
-
-#Step 1: Inspect the first few lines of the data set:
-
-#what variables are there?*
-```{R}
-names(ames)
-```
-#Of what type are the variables?*
-
-
-```{R}
-sapply(ames, class)
-```
 #What does each variable mean?*
 
 
