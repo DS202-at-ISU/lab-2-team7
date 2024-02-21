@@ -114,6 +114,9 @@ Sale Price is the variable of interest
 
 ``` r
 ## 3)
+## Range = 20500000
+## The graph is right-skewed with extreme outliers 
+
 ggplot(ames, aes(x = `Sale Price`)) + 
   geom_histogram(bins = 500) +
   ggtitle("Sale Price")
@@ -122,7 +125,7 @@ ggplot(ames, aes(x = `Sale Price`)) +
 ![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
-## 4) Range = 20500000
+## 4) Range = 13870
 library(ggplot2)
 ggplot(data = ames, aes(x = Style, fill = Style)) +
   geom_bar() +
@@ -132,7 +135,7 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
 ![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ``` r
-  labs(title = "Bar Chart of Sale Price by Style",
+  labs(title = "Bar Chart of Style",
        x = "Style",
        y = "Count")
 ```
@@ -144,7 +147,7 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
     ## [1] "Count"
     ## 
     ## $title
-    ## [1] "Bar Chart of Sale Price by Style"
+    ## [1] "Bar Chart of Style"
     ## 
     ## attr(,"class")
     ## [1] "labels"
