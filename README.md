@@ -53,6 +53,17 @@ sapply(ames, class)
 
 **What does each variable mean?**
 
+*Address = the adress of the house, Style = the type of building,
+Occupancy = how many people live in the place, Sale Date = the date of
+the sale of the place, Sale Price = how much the place sold for, Multi
+Sale = yes or no question, Year Built = The year the place had been
+built, Acres = how many acres the property is, Total Living Area = the
+square footage of the property, Bedrooms = amount of bedrooms in the
+property, Finished Basement Area = how much squarefootage of finished
+basement in the property, Lot area = square footage of the lot, AC = yes
+or no if the property has AC, Fireplace = yes or no if the property has
+a fireplace, Neighborhood = What place of Ames the property is located.*
+
 **What do we expect their data range to be?**
 
 ``` r
@@ -105,17 +116,13 @@ summary(ames)
 
 **Is there a variable of special interest or focus?**
 
-Sale Price is the variable of interest.
+*Sale Price is the variable of interest*
 
 # Step 3
 
 **Start the exploration with the main variable**
 
 ``` r
-## 3)
-## Range = 20500000
-## The graph is right-skewed with extreme outliers 
-
 ggplot(ames, aes(x = `Sale Price`)) + 
   geom_histogram(bins = 500) +
   ggtitle("Sale Price")
@@ -127,9 +134,15 @@ ggplot(ames, aes(x = `Sale Price`)) +
 
 **What is the range of the variable?**
 
+*Range = 20500000*
+
 **What is the general pattern?**
 
+*The graph is right-skewed with extreme outliers*
+
 **Is there anything odd?**
+
+*Other than the outliers no*
 
 # Step 4, Individual
 
