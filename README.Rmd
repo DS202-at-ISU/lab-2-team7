@@ -28,24 +28,23 @@ library(tidyverse)
 
 # Step 1: Inspect the first few lines of the data set:
 
+
 **What variables are there?**
 ```{R}
 names(ames)
 ```
-**Of what type are the variables?**
 
+**Of what type are the variables?**
 ```{R}
 sapply(ames, class)
 ```
-
 **What does each variable mean?**
-
 
 
 **What do we expect their data range to be?**
 ```{R}
-
-summary(ames, na.rm = TRUE)
+ames[ames == 0] <- NA
+summary(ames)
 
 ```
 
@@ -61,10 +60,14 @@ Sale Price is the variable of interest.
 
 ```{r}
 ## 3)
+## Range = 20500000
+## The graph is right-skewed with extreme outliers 
+
 ggplot(ames, aes(x = `Sale Price`)) + 
   geom_histogram(bins = 500) +
   ggtitle("Sale Price")
 ```
+
 **What is the range of the variable?**
 
 
@@ -78,12 +81,12 @@ ggplot(ames, aes(x = `Sale Price`)) +
 # Step 4, Individual
 
 ```{r}
-## 4) Range = 20500000
+## 4) Range = 13870
 library(ggplot2)
 ggplot(data = ames, aes(x = Style, fill = Style)) +
   geom_bar() +
   coord_flip()
-  labs(title = "Bar Chart of Sale Price by Style",
+  labs(title = "Bar Chart of Style",
        x = "Style",
        y = "Count")
 
@@ -94,4 +97,5 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
 ```{r}
 ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
 ```
+
 
