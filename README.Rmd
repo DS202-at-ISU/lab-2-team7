@@ -49,16 +49,15 @@ summary(ames, na.rm = TRUE)
 
 ```
 
-# Step 2, Is there a variable of special interest or focus?
-Sale Price is the variable of interest
+# Step 2
 
-```{r}
-## 2) is there a variable of special interest or focus?
+**Is there a variable of special interest or focus?**
 
-## Sale Price is the variable of special interest.
-```
+Sale Price is the variable of interest.
 
-# Step 3, Start the exploration with the main variable:
+# Step 3
+
+**Start the exploration with the main variable**
 
 ```{r}
 ## 3)
@@ -66,6 +65,15 @@ ggplot(ames, aes(x = `Sale Price`)) +
   geom_histogram(bins = 500) +
   ggtitle("Sale Price")
 ```
+**What is the range of the variable?**
+
+
+
+**What is the general pattern?**
+
+
+**Is there anything odd?**
+
 
 # Step 4, Individual
 

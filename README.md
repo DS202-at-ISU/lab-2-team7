@@ -100,17 +100,15 @@ summary(ames, na.rm = TRUE)
     ##                     (19) Res: North Ridge Hei: 420  
     ##                     (Other)                  :3622
 
-# Step 2, Is there a variable of special interest or focus?
+# Step 2
 
-Sale Price is the variable of interest
+**Is there a variable of special interest or focus?**
 
-``` r
-## 2) is there a variable of special interest or focus?
+Sale Price is the variable of interest.
 
-## Sale Price is the variable of special interest.
-```
+# Step 3
 
-# Step 3, Start the exploration with the main variable:
+**Start the exploration with the main variable**
 
 ``` r
 ## 3)
@@ -119,7 +117,12 @@ ggplot(ames, aes(x = `Sale Price`)) +
   ggtitle("Sale Price")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> **What is the
+range of the variable?**
+
+**What is the general pattern?**
+
+**Is there anything odd?**
 
 # Step 4, Individual
 
@@ -131,7 +134,7 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
   coord_flip()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
   labs(title = "Bar Chart of Sale Price by Style",
@@ -157,4 +160,4 @@ ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
 
     ## Warning: Removed 447 rows containing non-finite values (`stat_bin()`).
 
-![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
