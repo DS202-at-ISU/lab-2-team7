@@ -17,7 +17,7 @@ grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
 
-# Step 1: Inspect the first few lines of the data set:
+## Step 1: Inspect the first few lines of the data set:
 
 **What variables are there?**
 
@@ -67,8 +67,7 @@ a fireplace, Neighborhood = What place of Ames the property is located.*
 **What do we expect their data range to be?**
 
 ``` r
-ames[ames == 0] <- NA
-summary(ames)
+summary(ames, na.rm = FALSE)
 ```
 
     ##   Parcel ID           Address                        Style     
@@ -112,13 +111,13 @@ summary(ames)
     ##                     (19) Res: North Ridge Hei: 420  
     ##                     (Other)                  :3622
 
-# Step 2
+## Step 2
 
 **Is there a variable of special interest or focus?**
 
 *Sale Price is the variable of interest*
 
-# Step 3
+## Step 3
 
 **Start the exploration with the main variable**
 
@@ -142,9 +141,20 @@ ggplot(ames, aes(x = `Sale Price`)) +
 
 **Is there anything odd?**
 
-*Other than the outliers no*
+*No*
 
-# Step 4, Individual
+## Step 4
+
+**For Each member to individually**
+
+1.  *What is the range of that variable*
+2.  *Plot. describe the pattern*
+3.  *What is the relationship to the main variable*
+4.  *Plot a scatterplot, boxplot or facetted barcharts (dependening on
+    the types of variables involved)*
+5.  *Describe overall pattern, does this variable describe any oddities
+    discovered in ?*
+6.  *Identify/follow-up on any oddities*
 
 ``` r
 ## 4) Range = 13870
@@ -181,3 +191,60 @@ ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
     ## Warning: Removed 486 rows containing non-finite values (`stat_bin()`).
 
 ![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+### Aidan
+
+*Variable of interest : Year Built*
+
+``` r
+ggplot(ames, aes(x=YearBuilt), na.rm = FALSE)+
+  geom_histogram(binwidth = 1)
+```
+
+    ## Warning: Removed 448 rows containing non-finite values (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+1.  *What is the range of that variable*
+
+-1880 to 2020
+
+2.  *Plot. describe the pattern*
+
+-The graph is skewed left with no major outliers
+
+3.  *What is the relationship to the main variable*
+
+``` r
+ggplot(ames, aes(x = YearBuilt, y=`Sale Price`), na.rm = FALSE)+
+  geom_point()
+```
+
+    ## Warning: Removed 2571 rows containing missing values (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+With only using sale price and year built to create a scatter plot there
+appears to be no correlation between the two variables.
+
+4.  *Plot a scatterplot, boxplot or facetted barcharts (dependening on
+    the types of variables involved)*
+
+``` r
+ggplot(ames, aes(x = YearBuilt, y=`Sale Price`), na.rm = FALSE)+
+  geom_point()+
+  facet_wrap(ames$Style, scales = 'free')
+```
+
+    ## Warning: Removed 2571 rows containing missing values (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+
+5.  *Describe overall pattern, does this variable describe any oddities
+    discovered in 3*
+
+-Following the visual of step 3, I had decided to add in a facet wrap of
+style to see if any relationships would show up between the three
+variables. I found the relationship between year built and sale price is
+dependent also on the style of the building. Though this relationship is
+also very weak and not a supper high r value.
