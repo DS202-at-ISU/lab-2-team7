@@ -53,13 +53,13 @@ sapply(ames, class)
 
 **What does each variable mean?**
 
-*Address = the adress of the house, Style = the type of building,
+*Address = the address of the house, Style = the type of building,
 Occupancy = how many people live in the place, Sale Date = the date of
 the sale of the place, Sale Price = how much the place sold for, Multi
 Sale = yes or no question, Year Built = The year the place had been
 built, Acres = how many acres the property is, Total Living Area = the
 square footage of the property, Bedrooms = amount of bedrooms in the
-property, Finished Basement Area = how much squarefootage of finished
+property, Finished Basement Area = how much square footage of finished
 basement in the property, Lot area = square footage of the lot, AC = yes
 or no if the property has AC, Fireplace = yes or no if the property has
 a fireplace, Neighborhood = What place of Ames the property is located.*
@@ -248,3 +248,68 @@ style to see if any relationships would show up between the three
 variables. I found the relationship between year built and sale price is
 dependent also on the style of the building. Though this relationship is
 also very weak and not a supper high r value.
+
+### Luke
+
+*Variable of interest : Neighborhood*
+
+``` r
+ggplot(ames, aes(x = Neighborhood, color = Neighborhood), na.rm = FALSE) +
+  geom_bar(show.legend = FALSE) +
+  coord_flip()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+
+1.  *What is the range of that variable*
+
+-No range, since this is not a continuous variable
+
+2.  *Plot. describe the pattern*
+
+-Skewed right, but largely no dicernable pattern.
+
+3.  *What is the relationship to the main variable*
+
+``` r
+neighbor_avg <- ames %>% group_by(Neighborhood) %>% 
+  summarise(avg_neighbor = mean(`Sale Price`, na.rm = TRUE))
+
+ggplot(neighbor_avg, aes(x = Neighborhood, y = avg_neighbor, color = Neighborhood)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip()
+```
+
+    ## Warning: Removed 3 rows containing missing values (`position_stack()`).
+
+![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+
+    ## Warning: Removed 3 rows containing missing values (`position_stack()`).
+
+![](README_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+
+There are clearly differences in the average price of a house depending
+on the the neighborhood it is located in, aas shown above.
+
+4.  *Plot a scatterplot, boxplot or facetted barcharts (depending on the
+    types of variables involved)*
+
+``` r
+ggplot(ames, aes(x = Neighborhood, y = YearBuilt, color = `Sale Price`), na.rm = FALSE)+
+  geom_point() +
+  coord_flip()
+```
+
+    ## Warning: Removed 448 rows containing missing values (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+
+5.  *Describe overall pattern, does this variable describe any oddities
+    discovered in 3*
+
+-Following the visual of step 3, I decided to do try and see if the
+building’s age correlated with either variable. While there is a clear
+correlation between many neighborhoods and the years the houses were
+built, with the exception of Investor owned it is hard to see a
+correlation between the two. I would need to strike the investor
+properties to be able to distinguish between the two.
