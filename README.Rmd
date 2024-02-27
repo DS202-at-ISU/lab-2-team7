@@ -105,9 +105,6 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
 
 ```
 
-```{r}
-ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
-```
 
 ### Aidan
 
@@ -209,4 +206,12 @@ ggplot(ames, aes(x = Neighborhood, y = YearBuilt, color = `Sale Price`), na.rm =
   -Following the visual of step 3, I decided to do try and see if the building's age correlated with either variable. While there is a clear correlation between many neighborhoods and the years the houses were built, with the exception of Investor owned it is hard to see a correlation between the two. I would need to strike the investor properties to be able to distinguish between the two. 
   
 
+```{r}
 
+ggplot(ames, aes(x = `Sale Price`, y = Acres, color = Bedrooms)) + geom_point()
+
+```
+what is the range of that variable? plot. describe the pattern.
+Variable of interest: Acres and colored by Bedrooms. The range for Acres is 0.0010-12.0120 and the range of Bedrooms is 1-10.
+what is the relationship to the main variable? plot a scatterplot, boxplot or facetted barcharts (dependening on the types of variables involved). Describe overall pattern, does this variable describe any oddities discovered in 3? Identify/follow-up on any oddities.
+Based on this scatterplot Sale Price is not greatly impacted by Acres. The scatterplot is left skewed and Sale Price is relatively the same for 1 acre as it is for 12.
