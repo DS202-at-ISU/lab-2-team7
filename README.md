@@ -184,14 +184,6 @@ ggplot(data = ames, aes(x = Style, fill = Style)) +
     ## attr(,"class")
     ## [1] "labels"
 
-``` r
-ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1)
-```
-
-    ## Warning: Removed 486 rows containing non-finite values (`stat_bin()`).
-
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
-
 ### Aidan
 
 *Variable of interest : Year Built*
@@ -203,7 +195,7 @@ ggplot(ames, aes(x=YearBuilt), na.rm = FALSE)+
 
     ## Warning: Removed 448 rows containing non-finite values (`stat_bin()`).
 
-![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 1.  *What is the range of that variable*
 
@@ -222,7 +214,7 @@ ggplot(ames, aes(x = YearBuilt, y=`Sale Price`), na.rm = FALSE)+
 
     ## Warning: Removed 2571 rows containing missing values (`geom_point()`).
 
-![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 With only using sale price and year built to create a scatter plot there
 appears to be no correlation between the two variables.
@@ -238,7 +230,7 @@ ggplot(ames, aes(x = YearBuilt, y=`Sale Price`), na.rm = FALSE)+
 
     ## Warning: Removed 2571 rows containing missing values (`geom_point()`).
 
-![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 5.  *Describe overall pattern, does this variable describe any oddities
     discovered in 3*
@@ -259,7 +251,7 @@ ggplot(ames, aes(x = Neighborhood, color = Neighborhood), na.rm = FALSE) +
   coord_flip()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 1.  *What is the range of that variable*
 
@@ -282,11 +274,11 @@ ggplot(neighbor_avg, aes(x = Neighborhood, y = avg_neighbor, color = Neighborhoo
 
     ## Warning: Removed 3 rows containing missing values (`position_stack()`).
 
-![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
     ## Warning: Removed 3 rows containing missing values (`position_stack()`).
 
-![](README_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 There are clearly differences in the average price of a house depending
 on the the neighborhood it is located in, aas shown above.
@@ -302,7 +294,7 @@ ggplot(ames, aes(x = Neighborhood, y = YearBuilt, color = `Sale Price`), na.rm =
 
     ## Warning: Removed 448 rows containing missing values (`geom_point()`).
 
-![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 5.  *Describe overall pattern, does this variable describe any oddities
     discovered in 3*
@@ -313,3 +305,21 @@ correlation between many neighborhoods and the years the houses were
 built, with the exception of Investor owned it is hard to see a
 correlation between the two. I would need to strike the investor
 properties to be able to distinguish between the two.
+
+``` r
+ggplot(ames, aes(x = `Sale Price`, y = Acres, color = Bedrooms)) + geom_point()
+```
+
+    ## Warning: Removed 2288 rows containing missing values (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- --> what is the
+range of that variable? plot. describe the pattern. Variable of
+interest: Acres and colored by Bedrooms. The range for Acres is
+0.0010-12.0120 and the range of Bedrooms is 1-10. what is the
+relationship to the main variable? plot a scatterplot, boxplot or
+facetted barcharts (dependening on the types of variables involved).
+Describe overall pattern, does this variable describe any oddities
+discovered in 3? Identify/follow-up on any oddities. Based on this
+scatterplot Sale Price is not greatly impacted by Acres. The scatterplot
+is left skewed and Sale Price is relatively the same for 1 acre as it is
+for 12.
